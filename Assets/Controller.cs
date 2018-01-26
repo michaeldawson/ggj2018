@@ -5,10 +5,10 @@ using System.Linq;
 
 public class Controller : MonoBehaviour {
   public GameObject playerPrefab;
-  public GameObject[] spawnPoints;
-  List<Player> players = new List<Player>();
-  public GameObject droneSpawnPoints;
   public GameObject dronePrefab;
+  public int numPlayers = 1;
+  public Level currentLevel;
+  List<Player> players = new List<Player>();
   List<Drone> drones = new List<Drone>();
 
   Dictionary<int, Rect[]> cameraViewports = new Dictionary<int, Rect[]>() {
@@ -24,21 +24,28 @@ public class Controller : MonoBehaviour {
 	}
 
   void spawnPlayers () {
-    int totalPlayers = spawnPoints.Length;
-    Rect[] viewports = cameraViewports[totalPlayers];
+    int playerSpawnPointCount = currentLevel.playerSpawnPoints.transform.childCount;
+    if ( numPlayers > playerSpawnPointCount ) {
+      Debug.LogError("Level needs to have at least " + numPlayers + " player spawn points");
+      return;
+    }
 
-    for (int playerNum = 1; playerNum <= totalPlayers; playerNum++) {
-      Transform spawnPoint = spawnPoints[playerNum - 1].transform;
+    Rect[] viewports = cameraViewports[numPlayers];
+
+    for (int playerNum = 1; playerNum <= numPlayers; playerNum++) {
+      Transform spawnPoint = currentLevel.playerSpawnPoints.transform.GetChild(playerNum - 1);
       Player player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Player>();
       player.playerNum = playerNum;
-      player.setCameraViewport(viewports[playerNum-1]);
+      player.setCameraViewport(viewports[playerNum - 1]);
       players.Add(player);
     }
   }
 
   void spawnDrones () {
-    foreach (Transform child in droneSpawnPoints.transform) {
-      drones.Add(GameObject.Instantiate(dronePrefab, child.position, child.rotation).GetComponent<Drone>());
+    int droneSpawnPointCount = currentLevel.playerSpawnPoints.transform.childCount;
+    for (int droneNum = 1; droneNum <= droneSpawnPointCount; droneNum++) {
+      Transform spawnPoint = currentLevel.droneSpawnPoints.transform.GetChild(droneNum - 1);
+      drones.Add(GameObject.Instantiate(dronePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Drone>());
     }
   }
 
