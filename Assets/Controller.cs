@@ -17,15 +17,18 @@ public GameObject playerPrefab;
     player2 = GameObject.Instantiate(playerPrefab, p2Spawn.transform.position, p2Spawn.transform.rotation).GetComponent<Player>();
     player2.playerNum = 2;
 
-        Debug.Log(droneSpawnPoints.transform.GetChild(0));
-        //GameObject[] things = droneSpawnPoints.GetComponents<GameObject>();
-        foreach (GameObject gameObject in droneSpawnPoints.transform) {
-            GameObject.Instantiate(dronePrefab, gameObject.transform.position, gameObject.transform.rotation);
-        }
+    spawnDrones();
+
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 	}
+
+    void spawnDrones () {
+        foreach (Transform child in droneSpawnPoints.transform) {
+            GameObject.Instantiate(dronePrefab, child.position, child.rotation);
+        }
+    }
 }
