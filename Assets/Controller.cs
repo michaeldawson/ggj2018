@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Controller : MonoBehaviour {
   public GameObject playerPrefab;
@@ -8,15 +9,21 @@ public class Controller : MonoBehaviour {
   List<Player> players = new List<Player>();
   public GameObject droneSpawnPoints;
   public GameObject dronePrefab;
+  List<Drone> drones = new List<Drone>();
+
+  Dictionary<int, Rect[]> cameraViewports = new Dictionary<int, Rect[]>() {
+    {1, new Rect[] {new Rect(0f, 0f, 1f, 1f)}},
+    {2, new Rect[] {new Rect(0f, 0f, .5f, 1f), new Rect(.5f, 0f, .5f, 1f)}},
+    {3, new Rect[] {new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f), new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f)}},
+    {4, new Rect[] {new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f), new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f)}},
+  };
 
 	void Start () {
-    Dictionary<int, Rect[]> cameraViewports = new Dictionary<int, Rect[]>() {
-      {1, new Rect[] {new Rect(0f, 0f, 1f, 1f)}},
-      {2, new Rect[] {new Rect(0f, 0f, .5f, 1f), new Rect(.5f, 0f, .5f, 1f)}},
-      {3, new Rect[] {new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f), new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f)}},
-      {4, new Rect[] {new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f), new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f)}},
-    };
+    spawnPlayers();
+    spawnDrones();
+	}
 
+  void spawnPlayers () {
     int totalPlayers = spawnPoints.Length;
     Rect[] viewports = cameraViewports[totalPlayers];
 
@@ -27,13 +34,15 @@ public class Controller : MonoBehaviour {
       player.setCameraViewport(viewports[playerNum-1]);
       players.Add(player);
     }
-
-    spawnDrones();
-	}
+  }
 
   void spawnDrones () {
     foreach (Transform child in droneSpawnPoints.transform) {
-      GameObject.Instantiate(dronePrefab, child.position, child.rotation);
+      drones.Add(GameObject.Instantiate(dronePrefab, child.position, child.rotation).GetComponent<Drone>());
     }
+  }
+
+  List<Drone> getDronesNear(Vector3 position, float radius) {
+    return drones.Where(d => (d.transform.position - position).magnitude < radius).ToList();
   }
 }
