@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
   public int playerNum;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -18,9 +17,8 @@ public class Player : MonoBehaviour {
 	}
 
   void FixedUpdate() {
-    Rigidbody rigidBody = gameObject.GetComponent<Rigidbody>();
+    Rigidbody rigidBody = gameObject.GetComponentInChildren<Rigidbody>();
   	float deadZone = 0.05f;
-    Debug.Log("Horizontal" + playerNum);
   	float x = Input.GetAxis("Horizontal" + playerNum);
   	float z = Input.GetAxis ("Vertical" + playerNum);
   	if (Mathf.Sqrt(Mathf.Pow(x,2f) + Mathf.Pow(z,2f)) > deadZone ) {
@@ -29,5 +27,9 @@ public class Player : MonoBehaviour {
     	rigidBody.AddForce(acceleration * Time.fixedDeltaTime * direction);
   	}
     //rigidBody.rotation = direction = Quaternion.AngleAxis( * Time.fixedDeltaTime * turnSpeed, Vector3.up) * direction;
+  }
+
+  public void setCameraViewport(Rect viewport) {
+    gameObject.GetComponentInChildren<Camera>().rect = viewport;
   }
 }

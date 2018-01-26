@@ -3,32 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Controller : MonoBehaviour {
-public GameObject droneSpawnPoints;
-    public GameObject dronePrefab;
-public GameObject playerPrefab;
-  public GameObject p1Spawn;
-  public GameObject p2Spawn;
-  Player player1;
-  Player player2;
-	// Use this for initialization
+  public GameObject playerPrefab;
+  public GameObject[] spawnPoints;
+  List<Player> players = new List<Player>();
+  public GameObject droneSpawnPoints;
+  public GameObject dronePrefab;
+
 	void Start () {
-    player1 = GameObject.Instantiate(playerPrefab, p1Spawn.transform.position, p1Spawn.transform.rotation).GetComponent<Player>();
-    player1.playerNum = 1;
-    player2 = GameObject.Instantiate(playerPrefab, p2Spawn.transform.position, p2Spawn.transform.rotation).GetComponent<Player>();
-    player2.playerNum = 2;
+    Dictionary<int, Rect[]> cameraViewports = new Dictionary<int, Rect[]>() {
+      {1, new Rect[] {new Rect(0f, 0f, 1f, 1f)}},
+      {2, new Rect[] {new Rect(0f, 0f, .5f, 1f), new Rect(.5f, 0f, .5f, 1f)}},
+      {3, new Rect[] {new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f), new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f)}},
+      {4, new Rect[] {new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f), new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f)}},
+    };
+
+    int totalPlayers = spawnPoints.Length;
+    Rect[] viewports = cameraViewports[totalPlayers];
+
+    for (int playerNum = 1; playerNum <= totalPlayers; playerNum++) {
+      Transform spawnPoint = spawnPoints[playerNum - 1].transform;
+      Player player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Player>();
+      player.playerNum = playerNum;
+      player.setCameraViewport(viewports[playerNum-1]);
+      players.Add(player);
+    }
 
     spawnDrones();
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-		
 	}
 
-    void spawnDrones () {
-        foreach (Transform child in droneSpawnPoints.transform) {
-            GameObject.Instantiate(dronePrefab, child.position, child.rotation);
-        }
+  void spawnDrones () {
+    foreach (Transform child in droneSpawnPoints.transform) {
+      GameObject.Instantiate(dronePrefab, child.position, child.rotation);
     }
+  }
 }
