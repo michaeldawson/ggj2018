@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroneAbilities: System.Collections.Generic.Dictionary<AbilityType, int> {}
-
 public enum AbilityType {
   Combat,
   DroneNavigation
 };
+
+public class DroneAbilities: System.Collections.Generic.Dictionary<AbilityType, int> {}
+
+public class AbilityTypes {
+  public static List<AbilityType> ALL = new List<AbilityType>() {AbilityType.Combat, AbilityType.DroneNavigation};
+}
 
 public class Drone : MonoBehaviour {
   public Player player;
@@ -37,12 +41,15 @@ public class Drone : MonoBehaviour {
   }
 
   void Update() {
-    // TODO: iterate over enum? C# is a bag of dicks
-    if (currentAbilities.ContainsKey(AbilityType.Combat)) {
-      gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[AbilityType.Combat]);
+    foreach (AbilityType ability in AbilityTypes.ALL) {
+      if ( currentAbilities.ContainsKey(ability) ) {
+        if ( ability == AbilityType.Combat ) {
+          gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[ability]);
+        } else if ( ability == AbilityType.DroneNavigation) {
+          gameObject.GetComponent<DroneNavigation>().onUpdate(currentAbilities[ability]);
+        }
+      }
     }
-
-    gameObject.GetComponent<DroneNavigation>().onUpdate(currentAbilities[AbilityType.DroneNavigation]);
   }
 
   public void hitBy(Bullet bullet) {
