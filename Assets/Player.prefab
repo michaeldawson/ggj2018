@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124728461172520}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 70.46, z: 0}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087072956384290}
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959365755467548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.798489, y: -0.5, z: -17.167236}
+  m_LocalPosition: {x: -11.887634, y: -0.5, z: -35.930313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4912163205788620}
@@ -252,7 +252,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 17.15
   m_Depth: 1
   m_CullingMask:
@@ -481,6 +481,7 @@ MonoBehaviour:
   model: {fileID: 1597859581693922}
   avatar: {fileID: 1958719783091230}
   transmitter: {fileID: 1747604978504880}
+  intendedAccel: {x: 0, y: 0, z: 0}
 --- !u!114 &114626007094533120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,7 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304f9c1017475094084fe25c4ecf21df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 10, z: 0}
+  offset: {x: 0, y: 5, z: 0}
+  player: {fileID: 114608352569932422}
   target: {fileID: 4912163205788620}
 --- !u!114 &114738161540145358
 MonoBehaviour:

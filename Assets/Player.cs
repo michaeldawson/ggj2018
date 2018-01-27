@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
   public DroneAbilities droneAbilities = new DroneAbilities() {
     {AbilityType.Combat, 1},
   };
+  public Vector3 intendedAccel = Vector3.zero;
 
   Controller _controller;
   public Controller controller {
@@ -38,9 +39,10 @@ public class Player : MonoBehaviour {
   	float deadZone = 0.05f;
   	float x = Input.GetAxis("Horizontal" + playerNum);
   	float z = Input.GetAxis ("Vertical" + playerNum);
+    this.intendedAccel = new Vector3 (x, 0f, z);
   	if (Mathf.Sqrt(Mathf.Pow(x,2f) + Mathf.Pow(z,2f)) > deadZone ) {
-  	  direction = (new Vector3 (x, 0f, z)).normalized;
-  	  rigidBody.rotation = Quaternion.Slerp(rigidBody.rotation, Quaternion.LookRotation (direction, Vector3.up), 4 * Time.fixedDeltaTime);
+      Vector3 direction = this.intendedAccel.normalized;
+  	  rigidBody.rotation = Quaternion.Slerp(rigidBody.rotation, Quaternion.LookRotation (direction.normalized, Vector3.up), 4 * Time.fixedDeltaTime);
     	rigidBody.AddForce(acceleration * Time.fixedDeltaTime * direction);
   	}
     //rigidBody.rotation = direction = Quaternion.AngleAxis( * Time.fixedDeltaTime * turnSpeed, Vector3.up) * direction;
