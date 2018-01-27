@@ -5,19 +5,26 @@ using System.Linq;
 
 public enum AbilityType {
   Combat,
-  DroneNavigation
+  DroneNavigation,
+  DroneReplication
 };
 
 public class DroneAbilities: System.Collections.Generic.Dictionary<AbilityType, int> {}
 
 public class AbilityTypes {
-  public static List<AbilityType> ALL = new List<AbilityType>() {AbilityType.Combat, AbilityType.DroneNavigation};
+  public static List<AbilityType> ALL = new List<AbilityType>() {
+    AbilityType.Combat,
+    AbilityType.DroneNavigation,
+    AbilityType.DroneReplication
+  };
 }
 
 public class Drone : MonoBehaviour {
   public Player player;
   public float initialHealth = 1;
   public float health;
+  public GameObject avatar;
+
   Controller _controller;
   public Controller controller {
     set {
@@ -29,7 +36,7 @@ public class Drone : MonoBehaviour {
   }
 
   public DroneAbilities currentAbilities = new DroneAbilities() {
-    { AbilityType.DroneNavigation, 1 }
+    { AbilityType.DroneNavigation, 1 },
   };
 
   void Start () {
@@ -41,7 +48,8 @@ public class Drone : MonoBehaviour {
     foreach ( KeyValuePair<AbilityType, int> abilityLevel in player.droneAbilities ) {
       this.currentAbilities.Add(abilityLevel.Key, abilityLevel.Value);
     }
-    this.GetComponent<Renderer>().material.color = player.colour;
+    this.avatar.GetComponent<Renderer>().material.color = player.colour;
+    this.GetComponent<DroneReplication>().resetReplicationTimer();
   }
 
   void Update() {
@@ -51,6 +59,8 @@ public class Drone : MonoBehaviour {
           gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[ability]);
         } else if ( ability == AbilityType.DroneNavigation) {
           gameObject.GetComponent<DroneNavigation>().onUpdate(currentAbilities[ability]);
+        } else if (ability == AbilityType.DroneReplication) {
+          gameObject.GetComponent<DroneReplication>().onUpdate(currentAbilities[ability]);
         }
       }
     }
