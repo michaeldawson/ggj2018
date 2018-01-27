@@ -8,10 +8,10 @@ public class DroneReplication : MonoBehaviour {
 
   private Drone drone;
 
-  public float shakeStartIntensity = 0.3f;
-  private float startedShakingAt;
-  public float shakeTime = 0.5f;
+  public float shakeStartIntensity = 0.03f;
+  public float shakeTime = 1.5f;
   public float shakeIntensity = 0;
+  public float shakeIntensityRampUpRate = 0.01f;
 
   void Start () {
     drone = this.gameObject.GetComponent<Drone>();
@@ -23,12 +23,15 @@ public class DroneReplication : MonoBehaviour {
       return;
     }
 
+    if (shakeIntensity > 0) {
+      this.shakeIntensity += this.shakeIntensityRampUpRate;
+    }
+
 		if (Time.time > lastReplicationAt + replicationInterval) {
       startShaking();
     }
 
     if(Time.time > lastReplicationAt + replicationInterval + this.shakeTime) { 
-    //if (shakeIntensity > 0 && (Time.time > startedShakingAt + this.shakeTime)) {
       replicate();
       stopShaking();
     }
@@ -41,12 +44,11 @@ public class DroneReplication : MonoBehaviour {
   }
 
   void startShaking () {
-    startedShakingAt = Time.time;
-    shakeIntensity = shakeStartIntensity;
+    this.shakeIntensity = this.shakeStartIntensity;
   }
 
   void stopShaking () {
-    shakeIntensity = 0;
+    this.shakeIntensity = 0;
     drone.avatar.transform.localPosition = Vector3.zero;
   }
 

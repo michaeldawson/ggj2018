@@ -30,21 +30,22 @@ public class Drone : MonoBehaviour {
 
   Controller _controller;
   public Controller controller {
-    set {
-      this._controller = value;
-    }
-    get {
-      return this._controller;
-    }
+    set { this._controller = value; }
+    get { return this._controller; }
   }
 
   public DroneAbilities currentAbilities = new DroneAbilities() {
     { AbilityType.DroneNavigation, 1 },
+    { AbilityType.Combat, 1 },
+    { AbilityType.DroneReplication, 0 },
+    { AbilityType.DroneTransmission, 0 },
   };
 
   void Start () {
     this.health = this.initialHealth;
   }
+
+  // When captured by a player, impart all player abilities
   public void capturedBy(Player player) {
     setPlayer(player);
     this.currentAbilities = new DroneAbilities();
@@ -53,10 +54,14 @@ public class Drone : MonoBehaviour {
     }
   }
 
+  // When captured by a drone, set each ability to the max of the current abilities and the incoming abilities
   public void capturedBy(Drone drone) {
+    DroneAbilities nextAbilities = new DroneAbilities();
+
     foreach (KeyValuePair<AbilityType, int> abilityLevel in drone.currentAbilities) {
-      this.currentAbilities[abilityLevel.Key] = Mathf.Max(this.currentAbilities[abilityLevel.Key], abilityLevel.Value);
+      nextAbilities[abilityLevel.Key] = Mathf.Max(this.currentAbilities[abilityLevel.Key], abilityLevel.Value);
     }
+
     setPlayer(drone.player);
   }
 
