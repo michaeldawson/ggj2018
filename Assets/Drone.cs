@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class DroneAbilities: System.Collections.Generic.Dictionary<AbilityType, int> {}
+
 public enum AbilityType {
   Combat,
 };
@@ -30,8 +32,7 @@ public class Drone : MonoBehaviour {
       return this._controller;
     }
   }
-  public Dictionary<AbilityType, int> currentAbilities = new Dictionary<AbilityType, int>() {
-    {AbilityType.Combat, 1}
+  public DroneAbilities currentAbilities = new DroneAbilities() {
   };
 
   void Start () {
@@ -54,7 +55,9 @@ public class Drone : MonoBehaviour {
 
     direction = (new Vector3(deltaX, 0f, deltaZ)).normalized;
 
-    gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[AbilityType.Combat]);
+    if ( currentAbilities.ContainsKey(AbilityType.Combat) ) {
+      gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[AbilityType.Combat]);
+    }
 }
 
   void FixedUpdate() {
@@ -72,5 +75,11 @@ public class Drone : MonoBehaviour {
       0f,
       (Random.value - 0.5f) * explorationDistanceUpperBound
     );
+  }
+
+  public void capturedBy(Player player) {
+    this.player = player;
+    this.currentAbilities = player.droneAbilities;
+    this.GetComponent<Renderer>().material.color = player.colour;
   }
 }

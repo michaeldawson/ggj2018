@@ -17,7 +17,21 @@ public class Bullet : MonoBehaviour {
 		
 	}
 
-  void OnCollisionEnter(Collision collision) {
+  void OnTriggerEnter(Collider other) {
+    Drone drone = other.gameObject.GetComponent<Drone>();
+    Player player = other.gameObject.GetComponent<Player>();
+
+    if ( drone != null ) {
+      if ( drone.player != this.player ) {
+        GameObject.Destroy(this.gameObject);
+      }
+    } else if ( player != null ) {
+      if ( player != this.player ) {
+        GameObject.Destroy(this.gameObject);
+      }
+    } else {
+      GameObject.Destroy(this.gameObject);
+    }
   }
 
   void FixedUpdate() {

@@ -7,13 +7,29 @@ public class Player : MonoBehaviour {
   public float turnSpeed = 1f;
   public float acceleration = 10f;
   public int playerNum;
-	// Use this for initialization
+  public Color colour;
+  public GameObject model;
+  public GameObject avatar;
+  public DroneAbilities droneAbilities = new DroneAbilities() {
+    {AbilityType.Combat, 1},
+  };
+
+  Controller _controller;
+  public Controller controller {
+    set {
+      this._controller = value;
+    }
+    get {
+      return this._controller;
+    }
+  }
+
+  // Use this for initialization
 	void Start () {
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
   void FixedUpdate() {

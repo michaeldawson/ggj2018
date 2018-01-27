@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4087072956384290}
   - component: {fileID: 135899048094965158}
   - component: {fileID: 114608352569932422}
+  - component: {fileID: 114738161540145358}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -404,6 +405,9 @@ MonoBehaviour:
   turnSpeed: 200
   acceleration: 1000
   playerNum: 0
+  colour: {r: 0, g: 0, b: 0, a: 0}
+  model: {fileID: 1597859581693922}
+  avatar: {fileID: 1958719783091230}
 --- !u!114 &114626007094533120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -417,6 +421,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 10, z: 0}
   target: {fileID: 4912163205788620}
+--- !u!114 &114738161540145358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959365755467548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ba4401124ce684b9c38e25db4efae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transmitDistance: 5
+  transmitInterval: 1
 --- !u!124 &124863750209934182
 Behaviour:
   m_ObjectHideFlags: 1

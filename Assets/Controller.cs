@@ -18,6 +18,8 @@ public class Controller : MonoBehaviour {
     {4, new Rect[] {new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f), new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f)}},
   };
 
+  Color[] playerColours = {new Color(155,0,0,1), new Color(0,155,0,1), new Color(0,0,155,1), new Color(155,100,0,1) };
+
 	void Start () {
     spawnPlayers();
     spawnDrones();
@@ -35,8 +37,13 @@ public class Controller : MonoBehaviour {
     for (int playerNum = 1; playerNum <= numPlayers; playerNum++) {
       Transform spawnPoint = currentLevel.playerSpawnPoints.transform.GetChild(playerNum - 1);
       Player player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Player>();
+      player.controller = this;
       player.playerNum = playerNum;
       player.setCameraViewport(viewports[playerNum - 1]);
+      Color colour = playerColours[playerNum - 1];
+      player.colour = colour;
+      player.model.GetComponent<Renderer>().material.color = colour;
+
       players.Add(player);
     }
   }
@@ -48,9 +55,6 @@ public class Controller : MonoBehaviour {
       Drone drone = GameObject.Instantiate(dronePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Drone>();
       drone.controller = this;
       drone.player = this.players[Random.Range(0, numPlayers)];
-      if (drone.player == players[0]) {
-        drone.GetComponent<Renderer>().material.color = new Color(0, 255, 0, 1);
-      }
       drones.Add(drone);
     }
   }
