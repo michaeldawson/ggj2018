@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastReplicationAt: 0
   replicationInterval: 8
-  shakeStartIntensity: 0.003
+  shakeStartIntensity: 0.2
   shakeTime: 0.5
   shakeIntensity: 0
 --- !u!114 &114917488800348268
