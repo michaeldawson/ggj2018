@@ -28,8 +28,13 @@ public class DroneTransmission : MonoBehaviour {
         lastTransmitAt = Time.time;
       }
 
-      float transmitRadius = Mathf.Clamp(timeSinceLastTransmit / this.transmitInterval, 0, 1) * this.transmitDistance;
+      float transmitProgress = Mathf.Clamp(timeSinceLastTransmit / this.transmitInterval, 0, 1);
+
+      float transmitRadius = transmitProgress * this.transmitDistance;
       this.drone.transmitter.transform.localScale = Vector3.one * transmitRadius * 2f;
+
+      Renderer renderer = this.drone.transmitter.GetComponent<Renderer>();
+      renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1 - transmitProgress);
 
       transmit(transmitRadius);
     }

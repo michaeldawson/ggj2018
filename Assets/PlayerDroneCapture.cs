@@ -19,10 +19,16 @@ public class PlayerDroneCapture : MonoBehaviour {
       lastTransmitAt = Time.time;
     }
     Player player = this.GetComponent<Player>();
-    float transmitRadius = timeSinceLastTransmit / this.transmitInterval * this.transmitDistance;
+
+    float transmitProgress = Mathf.Clamp(timeSinceLastTransmit / this.transmitInterval, 0, 1);
+    float transmitRadius = transmitProgress * this.transmitDistance;
+
+    Renderer renderer = player.transmitter.GetComponent<Renderer>();
+    renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1 - transmitProgress);
+
     player.transmitter.transform.localScale = Vector3.one * transmitRadius * 2f;
     transmit(transmitRadius);
-	}
+  }
 
   void transmit(float radius) {
     Player player = this.GetComponent<Player>();
