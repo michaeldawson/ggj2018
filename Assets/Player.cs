@@ -12,9 +12,9 @@ public class Player : MonoBehaviour {
   public GameObject avatar;
   public GameObject transmitter;
   public DroneAbilities droneAbilities = new DroneAbilities() {
-    {AbilityType.Combat, 1},
+    {AbilityType.Combat, 0},
     {AbilityType.DroneNavigation, 1},
-    {AbilityType.DroneReplication, 1},
+    {AbilityType.DroneReplication, 0},
   };
   public Vector3 intendedAccel = Vector3.zero;
 

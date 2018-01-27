@@ -17,7 +17,11 @@ public class DroneReplication : MonoBehaviour {
     drone = this.gameObject.GetComponent<Drone>();
   }
 	
-	public void onUpdate (int level) {
+  public void onUpdate (int level) {
+    if ( level == 0 ) {
+      return;
+    }
+
 		if (Time.time > lastReplicationAt + replicationInterval) {
       startShaking();
       resetReplicationTimer();
