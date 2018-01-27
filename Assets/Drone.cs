@@ -56,13 +56,13 @@ public class Drone : MonoBehaviour {
 
   // When captured by a drone, set each ability to the max of the current abilities and the incoming abilities
   public void capturedBy(Drone drone) {
+    setPlayer(drone.player);
+
     DroneAbilities nextAbilities = new DroneAbilities();
 
     foreach (KeyValuePair<AbilityType, int> abilityLevel in drone.currentAbilities) {
       nextAbilities[abilityLevel.Key] = Mathf.Max(this.currentAbilities[abilityLevel.Key], abilityLevel.Value);
     }
-
-    setPlayer(drone.player);
   }
 
   private void setPlayer(Player player) {
