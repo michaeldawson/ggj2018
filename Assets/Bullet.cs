@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
   public float velocity;
   Player player;
   Vector3 direction;
+  public float damage;
 
   	// Use this for initialization
 	void Start () {
@@ -22,7 +23,8 @@ public class Bullet : MonoBehaviour {
     Player player = other.gameObject.GetComponent<Player>();
 
     if ( drone != null ) {
-      if ( drone.player != this.player ) {
+      if ( drone.player != null && drone.player != this.player ) {
+        drone.hitBy(this);
         GameObject.Destroy(this.gameObject);
       }
     } else if ( player != null ) {
@@ -38,8 +40,9 @@ public class Bullet : MonoBehaviour {
     this.transform.position = this.transform.position + this.direction * this.velocity * Time.fixedDeltaTime;
   }
 
-  public void initialise(Player player, Vector3 direction) {
+  public void initialise(Player player, Vector3 direction, float damage) {
     this.player = player;
     this.direction = direction;
+    this.damage = damage;
   }
 }

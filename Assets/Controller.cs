@@ -62,4 +62,9 @@ public class Controller : MonoBehaviour {
   public List<Drone> getDronesNear(Vector3 position, float radius) {
     return drones.Where(d => (d.transform.position - position).magnitude < radius).ToList();
   }
+
+  public void destroyDrone (Drone drone) {
+    this.drones.Remove(drone);
+    GameObject.Destroy(drone.gameObject);
+  }
 }

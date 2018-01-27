@@ -29,7 +29,7 @@ public class DroneCombat : MonoBehaviour {
       Drone nearestEnemy = enemyDrones.OrderBy(d => (d.transform.position - this.transform.position).sqrMagnitude).FirstOrDefault();
       if ( nearestEnemy != null ) {
         Bullet bullet = GameObject.Instantiate(bulletPrefab, this.transform.position, this.transform.rotation).GetComponent<Bullet>();
-        bullet.initialise(drone().player, (nearestEnemy.transform.position - this.transform.position).normalized);
+        bullet.initialise(drone().player, (nearestEnemy.transform.position - this.transform.position).normalized, level);
       }
     }
   }

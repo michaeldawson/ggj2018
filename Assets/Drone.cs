@@ -23,6 +23,9 @@ public class Drone : MonoBehaviour {
   public Vector3 targetPoint = Vector3.zero;
   public Vector3 direction = Vector3.zero;
 
+  public float initialHealth = 1;
+  public float health;
+
   Controller _controller;
   public Controller controller {
     set {
@@ -36,7 +39,8 @@ public class Drone : MonoBehaviour {
   };
 
   void Start () {
-    targetPoint = getNewTargetPoint();
+    this.health = this.initialHealth;
+    this.targetPoint = getNewTargetPoint();
   }
 
   void Update() {
@@ -81,5 +85,12 @@ public class Drone : MonoBehaviour {
     this.player = player;
     this.currentAbilities = player.droneAbilities;
     this.GetComponent<Renderer>().material.color = player.colour;
+  }
+
+  public void hitBy(Bullet bullet) {
+    this.health -= bullet.damage;
+    if ( this.health <= 0f ) {
+      this.controller.destroyDrone(this);
+    }
   }
 }
