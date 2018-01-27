@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
   public Color colour;
   public GameObject model;
   public GameObject avatar;
+  public GameObject transmitter;
   public DroneAbilities droneAbilities = new DroneAbilities() {
     {AbilityType.Combat, 1},
   };
