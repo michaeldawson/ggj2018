@@ -6,7 +6,8 @@ using System.Linq;
 public enum AbilityType {
   Combat,
   DroneNavigation,
-  DroneReplication
+  DroneReplication,
+  DroneTransmission,
 };
 
 public class DroneAbilities: System.Collections.Generic.Dictionary<AbilityType, int> {}
@@ -15,7 +16,8 @@ public class AbilityTypes {
   public static List<AbilityType> ALL = new List<AbilityType>() {
     AbilityType.Combat,
     AbilityType.DroneNavigation,
-    AbilityType.DroneReplication
+    AbilityType.DroneReplication,
+    AbilityType.DroneTransmission,
   };
 }
 
@@ -24,6 +26,7 @@ public class Drone : MonoBehaviour {
   public float initialHealth = 1;
   public float health;
   public GameObject avatar;
+  public GameObject transmitter;
 
   Controller _controller;
   public Controller controller {
@@ -61,6 +64,8 @@ public class Drone : MonoBehaviour {
           gameObject.GetComponent<DroneNavigation>().onUpdate(currentAbilities[ability]);
         } else if (ability == AbilityType.DroneReplication) {
           gameObject.GetComponent<DroneReplication>().onUpdate(currentAbilities[ability]);
+        } else if (ability == AbilityType.DroneTransmission) {
+          gameObject.GetComponent<DroneTransmission>().onUpdate(currentAbilities[ability]);
         }
       }
     }
