@@ -22,7 +22,7 @@ public class DroneCombat : MonoBehaviour {
   
   public void onUpdate(int level) {
     float timeSinceLastFired = Time.time - this.lastFiredAt;
-    if ( timeSinceLastFired > fireRate ) {
+    if ( timeSinceLastFired > fireRate / level ) {
       this.lastFiredAt = Time.time;
       List<Drone> nearbyDrones = drone().controller.getDronesNear(this.transform.position, level * baseDistance);
       IEnumerable<Drone> enemyDrones = nearbyDrones.Where(d => d != this.drone() && d.player != null && d.player != this.drone().player);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum AbilityType {
   Combat,
@@ -36,13 +37,16 @@ public class Drone : MonoBehaviour {
   }
   public void capturedBy(Player player) {
     this.player = player;
-    this.currentAbilities = player.droneAbilities;
+    this.currentAbilities = new DroneAbilities();
+    foreach ( KeyValuePair<AbilityType, int> abilityLevel in player.droneAbilities ) {
+      this.currentAbilities.Add(abilityLevel.Key, abilityLevel.Value);
+    }
     this.GetComponent<Renderer>().material.color = player.colour;
   }
 
   void Update() {
     foreach (AbilityType ability in AbilityTypes.ALL) {
-      if ( currentAbilities.ContainsKey(ability) ) {
+      if ( this.currentAbilities.ContainsKey(ability) ) {
         if ( ability == AbilityType.Combat ) {
           gameObject.GetComponent<DroneCombat>().onUpdate(currentAbilities[ability]);
         } else if ( ability == AbilityType.DroneNavigation) {
