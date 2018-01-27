@@ -19,8 +19,8 @@ public class Bullet : MonoBehaviour {
 	}
 
   void OnTriggerEnter(Collider other) {
-    Drone drone = other.gameObject.GetComponent<Drone>();
-    Player player = other.gameObject.GetComponent<Player>();
+    Drone drone = other.transform.parent.gameObject.GetComponent<Drone>();
+    Player player = other.transform.parent.gameObject.GetComponent<Player>();
 
     if ( drone != null ) {
       if ( drone.player != null && drone.player != this.player ) {
