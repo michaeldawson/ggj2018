@@ -43,6 +43,6 @@ public class DroneTransmission : MonoBehaviour {
     };
 
     List<Drone> nearbyDrones = this.drone.controller.getDronesNear(drone.transform.position, radius);
-    nearbyDrones.ForEach(d => d.capturedBy(player.GetComponent<Player>()));
+    nearbyDrones.ForEach(d => d.capturedBy(drone));
   }
 }

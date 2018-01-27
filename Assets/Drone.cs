@@ -46,11 +46,22 @@ public class Drone : MonoBehaviour {
     this.health = this.initialHealth;
   }
   public void capturedBy(Player player) {
-    this.player = player;
+    setPlayer(player);
     this.currentAbilities = new DroneAbilities();
     foreach ( KeyValuePair<AbilityType, int> abilityLevel in player.droneAbilities ) {
       this.currentAbilities.Add(abilityLevel.Key, abilityLevel.Value);
     }
+  }
+
+  public void capturedBy(Drone drone) {
+    foreach (KeyValuePair<AbilityType, int> abilityLevel in drone.currentAbilities) {
+      this.currentAbilities[abilityLevel.Key] = Mathf.Max(this.currentAbilities[abilityLevel.Key], abilityLevel.Value);
+    }
+    setPlayer(drone.player);
+  }
+
+  private void setPlayer(Player player) {
+    this.player = player;
     this.avatar.GetComponent<Renderer>().material.color = player.colour;
   }
 
