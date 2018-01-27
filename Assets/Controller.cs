@@ -42,14 +42,20 @@ public class Controller : MonoBehaviour {
   }
 
   void spawnDrones () {
-    int droneSpawnPointCount = currentLevel.playerSpawnPoints.transform.childCount;
+    int droneSpawnPointCount = currentLevel.droneSpawnPoints.transform.childCount;
     for (int droneNum = 1; droneNum <= droneSpawnPointCount; droneNum++) {
       Transform spawnPoint = currentLevel.droneSpawnPoints.transform.GetChild(droneNum - 1);
-      drones.Add(GameObject.Instantiate(dronePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Drone>());
+      Drone drone = GameObject.Instantiate(dronePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Drone>();
+      drone.controller = this;
+      drone.player = this.players[Random.Range(0, numPlayers)];
+      if (drone.player == players[0]) {
+        drone.GetComponent<Renderer>().material.color = new Color(0, 255, 0, 1);
+      }
+      drones.Add(drone);
     }
   }
 
-  List<Drone> getDronesNear(Vector3 position, float radius) {
+  public List<Drone> getDronesNear(Vector3 position, float radius) {
     return drones.Where(d => (d.transform.position - position).magnitude < radius).ToList();
   }
 }
