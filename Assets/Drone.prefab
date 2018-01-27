@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114917488800348268}
   - component: {fileID: 54838042708184800}
   - component: {fileID: 114562456923554852}
+  - component: {fileID: 114274330125735376}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -101,6 +102,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114274330125735376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1737351024489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9a211923cf6534183a1fee560559eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 150
+  targetPoint: {x: 0, y: 0, z: 0}
+  targetPointRandomOffset: 50
+  targetPointDuration: 2
 --- !u!114 &114562456923554852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,13 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  acceleration: 300
-  explorationTime: 2.5
-  explorationDistanceUpperBound: 30
-  explorationDistanceLowerBound: 5
-  timeSpentExploring: 0
-  targetPoint: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 1}
+  initialHealth: 1
+  health: 0
 --- !u!135 &135553547030353062
 SphereCollider:
   m_ObjectHideFlags: 1
