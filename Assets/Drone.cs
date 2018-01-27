@@ -52,7 +52,6 @@ public class Drone : MonoBehaviour {
       this.currentAbilities.Add(abilityLevel.Key, abilityLevel.Value);
     }
     this.avatar.GetComponent<Renderer>().material.color = player.colour;
-    this.GetComponent<DroneReplication>().resetReplicationTimer();
   }
 
   void Update() {

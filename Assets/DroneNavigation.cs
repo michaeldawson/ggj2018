@@ -8,32 +8,37 @@ public class DroneNavigation : MonoBehaviour {
   // The target point is the point that the drone is headed towards
   public Vector3 targetPoint = Vector3.zero;
   public int targetPointRandomOffset = 50;
+  private Drone drone;
   float targetPointSetAt;
 
   // By default, retain a heading for up to 5 seconds, but this should be less when owned by a player for a 'flocking' effect
   public float targetPointDuration = 2f;
 
   void Start() {
+    this.drone = this.gameObject.GetComponent<Drone>();
     setNewTargetPoint();
   }
 
   public void onUpdate(int level) {
     if (Time.time > targetPointSetAt + targetPointDuration) {
-      targetPointSetAt = Time.time;
       setNewTargetPoint();
     }
+  }
 
-    Vector3 dronePosition = drone().transform.position;
-    float deltaX = targetPoint.x - dronePosition.x;
-    float deltaZ = targetPoint.z - dronePosition.z;
-
-    Vector3 direction = (new Vector3(deltaX, 0f, deltaZ)).normalized;
-    drone().GetComponent<Rigidbody>().AddForce(acceleration * Time.fixedDeltaTime * direction);
+  void FixedUpdate() {
+    Vector3 dronePosition = this.drone.transform.position;
+    Vector3 direction = (targetPoint - dronePosition).normalized;
+    this.drone.GetComponentInChildren<Rigidbody>().AddForce(acceleration * Time.fixedDeltaTime * direction);
   }
 
   void setNewTargetPoint() {
-    Player player = drone().player;
-    Transform newDirectionOrigin = player ? player.transform : drone().transform;
+    Transform newDirectionOrigin;
+
+    if ( this.drone.player != null ) {
+      newDirectionOrigin = this.drone.player.transform;
+    } else {
+      newDirectionOrigin = this.drone.transform;
+    }
 
     targetPoint = newDirectionOrigin.position + new Vector3(
       (Random.value - 0.5f) * targetPointRandomOffset,
@@ -42,9 +47,6 @@ public class DroneNavigation : MonoBehaviour {
     );
 
     targetPointDuration = Random.value * 4 + 1;
+    targetPointSetAt = Time.time;
   }
-  public Drone drone() {
-    return this.gameObject.GetComponent<Drone>();
-  }
-
 }

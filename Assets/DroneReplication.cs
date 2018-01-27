@@ -15,8 +15,9 @@ public class DroneReplication : MonoBehaviour {
 
   void Start () {
     drone = this.gameObject.GetComponent<Drone>();
+    resetReplicationTimer();
   }
-	
+
   public void onUpdate (int level) {
     if ( level == 0 ) {
       return;
@@ -24,12 +25,11 @@ public class DroneReplication : MonoBehaviour {
 
 		if (Time.time > lastReplicationAt + replicationInterval) {
       startShaking();
-      resetReplicationTimer();
     }
 
-    if (shakeIntensity > 0 && (Time.time > startedShakingAt + this.shakeTime)) {
+    if(Time.time > lastReplicationAt + replicationInterval + this.shakeTime) { 
+    //if (shakeIntensity > 0 && (Time.time > startedShakingAt + this.shakeTime)) {
       replicate();
-      resetReplicationTimer();
       stopShaking();
     }
   }
@@ -43,7 +43,6 @@ public class DroneReplication : MonoBehaviour {
   void startShaking () {
     startedShakingAt = Time.time;
     shakeIntensity = shakeStartIntensity;
-    resetReplicationTimer();
   }
 
   void stopShaking () {
@@ -53,6 +52,7 @@ public class DroneReplication : MonoBehaviour {
 
   void replicate () {
     drone.controller.spawnDrone(drone.transform, drone.player);
+    resetReplicationTimer();
   }
 
   public void resetReplicationTimer() {
