@@ -10,6 +10,7 @@ public class DroneNavigation : MonoBehaviour {
   public int targetPointRandomOffset = 50;
   private Drone drone;
   float targetPointSetAt;
+  int level;
 
   // By default, retain a heading for up to 5 seconds, but this should be less when owned by a player for a 'flocking' effect
   public float targetPointDuration = 2f;
@@ -20,15 +21,21 @@ public class DroneNavigation : MonoBehaviour {
   }
 
   public void onUpdate(int level) {
+  this.level = level;
+    if ( this.level == 0 ) {
+      return;
+    }
     if (Time.time > targetPointSetAt + targetPointDuration) {
       setNewTargetPoint();
     }
   }
 
   void FixedUpdate() {
-    Vector3 dronePosition = this.drone.transform.position;
-    Vector3 direction = (targetPoint - dronePosition).normalized;
-    this.drone.GetComponentInChildren<Rigidbody>().AddForce(acceleration * Time.fixedDeltaTime * direction);
+    if ( this.level > 0 ) {
+      Vector3 dronePosition = this.drone.transform.position;
+      Vector3 direction = (targetPoint - dronePosition).normalized;
+      this.drone.GetComponentInChildren<Rigidbody>().AddForce(acceleration * Time.fixedDeltaTime * direction);
+    }
   }
 
   void setNewTargetPoint() {

@@ -35,8 +35,8 @@ public class Drone : MonoBehaviour {
   }
 
   public DroneAbilities currentAbilities = new DroneAbilities() {
-    { AbilityType.DroneNavigation, 1 },
-    { AbilityType.Combat, 1 },
+    { AbilityType.DroneNavigation, 0 },
+    { AbilityType.Combat, 0 },
     { AbilityType.DroneReplication, 0 },
     { AbilityType.DroneTransmission, 0 },
   };
@@ -52,6 +52,7 @@ public class Drone : MonoBehaviour {
     foreach ( KeyValuePair<AbilityType, int> abilityLevel in player.droneAbilities ) {
       this.currentAbilities.Add(abilityLevel.Key, abilityLevel.Value);
     }
+   this.transmitter.GetComponent<Renderer>().material.SetColor("_Color", player.colour);
   }
 
   // When captured by a drone, set each ability to the max of the current abilities and the incoming abilities
@@ -63,6 +64,8 @@ public class Drone : MonoBehaviour {
     foreach (KeyValuePair<AbilityType, int> abilityLevel in drone.currentAbilities) {
       nextAbilities[abilityLevel.Key] = Mathf.Max(this.currentAbilities[abilityLevel.Key], abilityLevel.Value);
     }
+
+    this.transmitter.GetComponent<Renderer>().material.SetColor("_Color", drone.player.colour);
   }
 
   private void setPlayer(Player player) {

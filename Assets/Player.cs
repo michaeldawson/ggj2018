@@ -13,9 +13,9 @@ public class Player : MonoBehaviour {
   public GameObject transmitter;
   public DroneAbilities droneAbilities = new DroneAbilities() {
     {AbilityType.Combat, 0},
-    {AbilityType.DroneNavigation, 1},
+    {AbilityType.DroneNavigation, 0},
     {AbilityType.DroneReplication, 0},
-    {AbilityType.DroneTransmission, 1},
+    {AbilityType.DroneTransmission, 0},
   };
   public Vector3 intendedAccel = Vector3.zero;
 
