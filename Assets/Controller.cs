@@ -18,7 +18,7 @@ public class Controller : MonoBehaviour {
     {4, new Rect[] {new Rect(0f, .5f, .5f, .5f), new Rect(.5f, .5f, .5f, .5f), new Rect(0f, 0f, .5f, .5f), new Rect(.5f, 0f, .5f, .5f)}},
   };
 
-  Color[] playerColours = {new Color(155,0,0,1), new Color(0,155,0,1), new Color(0,0,155,1), new Color(155,100,0,1) };
+  Color[] playerColours = {new Vector4(6f,0f,0f,1f), new Vector4(0f,6f,0f,1f), new Vector4(0f,0f,6f,1), new Vector4(6f,3f,0f,1f) };
 
 	void Start () {
     spawnPlayers();
@@ -42,7 +42,7 @@ public class Controller : MonoBehaviour {
       player.setCameraViewport(viewports[playerNum - 1]);
       Color colour = playerColours[playerNum - 1];
       player.colour = colour;
-      player.model.GetComponent<Renderer>().material.color = colour;
+      player.model.GetComponent<Renderer>().material.SetColor("_EmissionColor", colour);
 
       players.Add(player);
     }
