@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{5EC9C41D-8508-73F9-FD53-804AB3632396}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_0;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;UNITY_POST_PROCESSING_STACK_V2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\AbilityPickup.cs" />
+     <Compile Include="Assets\Bullet.cs" />
+     <Compile Include="Assets\CameraController.cs" />
+     <Compile Include="Assets\Controller.cs" />
+     <Compile Include="Assets\Drone.cs" />
+     <Compile Include="Assets\DroneCombat.cs" />
+     <Compile Include="Assets\DroneNavigation.cs" />
+     <Compile Include="Assets\DroneReplication.cs" />
+     <Compile Include="Assets\DroneTransmission.cs" />
+     <Compile Include="Assets\Level.cs" />
+     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\PlayerAvatar.cs" />
+     <Compile Include="Assets\PlayerDroneCapture.cs" />
+     <Compile Include="Assets\Surforge\AddDetailTool\PlaceMeshes.cs" />
+     <Compile Include="Assets\Surforge\ComposerPresets\SurforgeComposerPresets.cs" />
+     <Compile Include="Assets\Surforge\Decals\DecalSet.cs" />
+     <Compile Include="Assets\Surforge\Decals\DecalSets.cs" />
+     <Compile Include="Assets\Surforge\GPURender\CameraPost.cs" />
+     <Compile Include="Assets\Surforge\GPURender\GPURender.cs" />
+     <Compile Include="Assets\Surforge\GPURender\SurforgeComposerShaderGUI.cs" />
+     <Compile Include="Assets\Surforge\GPURender\SurforgeSingleShaderGUI.cs" />
+     <Compile Include="Assets\Surforge\GPURender\SurforgeSSAOSettings.cs" />
+     <Compile Include="Assets\Surforge\Int3.cs" />
+     <Compile Include="Assets\Surforge\MeshCombine.cs" />
+     <Compile Include="Assets\Surforge\MeshHelper.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Configuration.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\Algorithm\Core.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\Algorithm\Data.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\Algorithm\Initialize.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\Algorithm\Result.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\Collections.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\ConvexFace.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\DataModel.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\MathHelper.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\ConvexHull\ObjectManager.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\IVertex.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation\DelaunayTrianglationInternal.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation\DelaunayTriangulation.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation\TriangulationCell.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation\VoronoiEdge.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\MIConvexHull\Triangulation\VoronoiMesh.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Cell2.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Cell3.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Face2.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Face3.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Vertex2.cs" />
+     <Compile Include="Assets\Surforge\MIConvexHull\Scripts\Vertex3.cs" />
+     <Compile Include="Assets\Surforge\Noise.cs" />
+     <Compile Include="Assets\Surforge\NoisePresets\NoisePreset.cs" />
+     <Compile Include="Assets\Surforge\NoisePresets\NoisePresets.cs" />
+     <Compile Include="Assets\Surforge\NoiseSample.cs" />
+     <Compile Include="Assets\Surforge\Octree\OctreeGizmosDraw.cs" />
+     <Compile Include="Assets\Surforge\Octree\SurforgeOctree.cs" />
+     <Compile Include="Assets\Surforge\Octree\SurforgeOctreeNode.cs" />
+     <Compile Include="Assets\Surforge\PlaceMesh.cs" />
+     <Compile Include="Assets\Surforge\PolyLassoCorner.cs" />
+     <Compile Include="Assets\Surforge\PolyLassoObject.cs" />
+     <Compile Include="Assets\Surforge\PolyLassoProfile.cs" />
+     <Compile Include="Assets\Surforge\PolyLassoProfiles\PolyLassoProfiles.cs" />
+     <Compile Include="Assets\Surforge\PolyLassoRelativeShape.cs" />
+     <Compile Include="Assets\Surforge\SerializedSurforgeBlock.cs" />
+     <Compile Include="Assets\Surforge\ShatterPresets\ShatterPresets.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\DebugPass.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\EdgeDetectionMethod.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\HDRMode.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\MinAttribute.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\PredicationPreset.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\Preset.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\QualityPreset.cs" />
+     <Compile Include="Assets\Surforge\SMAA\Scripts\SMAA.cs" />
+     <Compile Include="Assets\Surforge\SSAObscurance\SurforgeSSAO.cs" />
+     <Compile Include="Assets\Surforge\SurforgeAdjacencyList.cs" />
+     <Compile Include="Assets\Surforge\SurforgeBlock.cs" />
+     <Compile Include="Assets\Surforge\SurforgeBreadthFirstSearch.cs" />
+     <Compile Include="Assets\Surforge\SurforgeCluster.cs" />
+     <Compile Include="Assets\Surforge\SurforgeContentPack.cs" />
+     <Compile Include="Assets\Surforge\SurforgeLayer.cs" />
+     <Compile Include="Assets\Surforge\SurforgeLimits.cs" />
+     <Compile Include="Assets\Surforge\SurforgeLink.cs" />
+     <Compile Include="Assets\Surforge\SurforgePattern.cs" />
+     <Compile Include="Assets\Surforge\SurforgeRig.cs" />
+     <Compile Include="Assets\Surforge\SurforgeRoot.cs" />
+     <Compile Include="Assets\Surforge\SurforgeSceneCluster.cs" />
+     <Compile Include="Assets\Surforge\SurforgeSet.cs" />
+     <Compile Include="Assets\Surforge\SurforgeSettings.cs" />
+     <Compile Include="Assets\Surforge\SurforgeShatter.cs" />
+     <Compile Include="Assets\Surforge\SurforgeSkybox.cs" />
+     <Compile Include="Assets\Surforge\SurforgeTextGenerator.cs" />
+     <Compile Include="Assets\Surforge\SurforgeVoxelizedCluster.cs" />
+     <Compile Include="Assets\Surforge\SurforgeVoxelizedSet.cs" />
+     <Compile Include="Assets\Surforge\TextureFilter.cs" />
+     <Compile Include="Assets\Surforge\TexturePreview\SurforgeComposer.cs" />
+     <Compile Include="Assets\Surforge\TexturePreview\SurforgeTexturePreview.cs" />
+     <Compile Include="Assets\Surforge\Triangulator.cs" />
+     <Compile Include="Assets\Surforge\Vector3P.cs" />
+     <None Include="Assets\Surforge\GPURender\combineNoisePost.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge1_floater.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\FinalPass.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Waveform.compute" />
+     <None Include="Assets\Surforge\GPURender\fadeBlurPost.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Uber.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
+     <None Include="Assets\Surforge\GPURender\exportMaskSeparate.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\CopyStd.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Bloom.shader" />
+     <None Include="Assets\Surforge\GPURender\aoCapture.shader" />
+     <None Include="Assets\Surforge\Screenshots\screenshots folder.txt" />
+     <None Include="Assets\Surforge\GPURender\emissionPost.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\xRLib.hlsl" />
+     <None Include="Assets\Surforge\GPURender\masksCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge2_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeEmission0.shader" />
+     <None Include="Assets\Surforge\SSAObscurance\SurforgeSSAO.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
+     <None Include="Assets\Surforge\GPURender\exportSpecular.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\PSSL.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\AutoExposure.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeSingle.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Vectorscope.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
+     <None Include="Assets\Surforge\GPURender\Surforge3_floater.shader" />
+     <None Include="Assets\Surforge\SMAA\Shaders\SMAA.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge5_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\heightmapCapture.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+     <None Include="Assets\Surforge\GPURender\Surforge4_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\exportNormals.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge.cginc" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Colors.hlsl" />
+     <None Include="Assets\Surforge\GPURender\aoCaptureFloater.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge0.shader" />
+     <None Include="Assets\Surforge\GPURender\exportGlossiness.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\Vulkan.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\LightMeter.shader" />
+     <None Include="Assets\Surforge\GPURender\ssaoCaptureFloater.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge6_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\combinePost.shader" />
+     <None Include="Assets\Surforge\GPURender\normalsBakedAddPost.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\D3D12.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\OpenGL.hlsl" />
+     <None Include="Assets\Surforge\GPURender\blurPost.shader" />
+     <None Include="Assets\Surforge\GPURender\exportAo.shader" />
+     <None Include="Assets\Surforge\GPURender\grayBackgroundPost.shader" />
+     <None Include="Assets\Surforge\GPURender\masksPost2.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeEmission2.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
+     <None Include="Assets\Surforge\GPURender\floatersMaskCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\labelsAlphaCapture.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\ACES.hlsl" />
+     <None Include="Assets\Surforge\GPURender\addGlowPost.shader" />
+     <None Include="Assets\Surforge\GPURender\combineLabelsAlphaPost.shader" />
+     <None Include="Assets\Surforge\GPURender\bucketsCollect.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\StdLib.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
+     <None Include="Assets\Surforge\GPURender\exportMask.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Fog.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
+     <None Include="Assets\Surforge\GPURender\SurforgeEmission1.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge4.shader" />
+     <None Include="Assets\Surforge\GPURender\exportEmission.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
+     <None Include="Assets\Surforge\GPURender\masksPost.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
+     <None Include="Assets\Surforge\TexturePreview\WireframeFromVertexColor.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
+     <None Include="Assets\Surforge\SMAA\Shaders\SMAA.cginc" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
+     <None Include="Assets\Surforge\GPURender\bucketApplyPadding.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge7.shader" />
+     <None Include="Assets\Surforge\GPURender\normalsCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeLabel.shader" />
+     <None Include="Assets\Surforge\GPURender\exportHeightmap.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge7_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\emissionCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\labelsCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge5.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\D3D9.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeText.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Overlays.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\Metal.hlsl" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Vectorscope.compute" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
+     <None Include="Assets\Surforge\TexturePreview\mapOnScreenshot.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Copy.shader" />
+     <None Include="Assets\SurforgeExampleModels\WingedHelmet\note.txt" />
+     <None Include="Assets\Surforge\GPURender\Surforge0_floater.shader" />
+     <None Include="Assets\Surforge\GPURender\SurforgeComposer.shader" />
+     <None Include="Assets\Surforge\GPURender\exportAlpha.shader" />
+     <None Include="Assets\Surforge\GPURender\ssaoCapture.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge3.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\D3D11.hlsl" />
+     <None Include="Assets\Surforge\GPURender\Surforge2.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Waveform.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\XboxOne.hlsl" />
+     <None Include="Assets\Surforge\GPURender\edgesCapturePost.shader" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Sampling.hlsl" />
+     <None Include="Assets\Surforge\Skybox\skybox credits.txt" />
+     <None Include="Assets\Surforge\GPURender\Surforge1.shader" />
+     <None Include="Assets\Surforge\GPURender\bucketDownscale.shader" />
+     <None Include="Assets\Surforge\SMAA\LICENSE.txt" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Histogram.compute" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Histogram.shader" />
+     <None Include="Assets\Surforge\GPURender\Surforge6.shader" />
+     <None Include="Assets\Surforge\ChangeLog.txt" />
+     <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
+     <None Include="Assets\Surforge\GPURender\exportDiffuse.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UIAutomation">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/gamejam/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="com.unity.postprocessing.Editor.csproj">
+      <Project>{72FB72E4-2688-F05B-7138-DB19088FF49F}</Project>      <Name>com.unity.postprocessing.Editor</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.postprocessing.Runtime.csproj">
+      <Project>{68377B85-ED77-B401-B903-276D6F1EF90A}</Project>      <Name>com.unity.postprocessing.Runtime</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
