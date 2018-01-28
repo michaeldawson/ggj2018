@@ -1,0 +1,39 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Controller.cs">
+    <Files>
+      <File FileName="Assets\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\PlayerAvatar.cs" Line="6" Column="24" />
+      <File FileName="Assets\Controller.cs" Line="21" Column="125" />
+      <File FileName="Assets\Level.cs" Line="1" Column="1" />
+      <File FileName="Assets\CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Drone.cs" Line="1" Column="1" />
+      <File FileName="Assets\DroneNavigation.cs" Line="1" Column="1" />
+      <File FileName="Assets\DroneCombat.cs" Line="32" Column="27" />
+      <File FileName="Assets\Bullet.cs" Line="24" Column="1" />
+      <File FileName="Assets\PlayerDroneCapture.cs" Line="29" Column="91" />
+      <File FileName="Assets\AbilityPickup.cs" Line="17" Column="47" />
+      <File FileName="Assets\DroneReplication.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ggj2018" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Controller.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="ggj2018" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
